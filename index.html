@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Monitoring System</h1>
+    <div class="container">
+        <button id="start">Start Monitoring</button>
+        <pre id="weatherData"></pre>
+    </div>
+    <script>
+        const weatherData = [
+            { city: 'Delhi', temp: 38, feels_like: 40, condition: 'Clear' },
+            { city: 'Mumbai', temp: 30, feels_like: 32, condition: 'Rain' },
+            { city: 'Chennai', temp: 34, feels_like: 37, condition: 'Cloudy' },
+            { city: 'Bangalore', temp: 28, feels_like: 29, condition: 'Clear' },
+            { city: 'Kolkata', temp: 33, feels_like: 35, condition: 'Cloudy' },
+            { city: 'Hyderabad', temp: 36, feels_like: 38, condition: 'Clear' },
+        ];
+
+        // Simulate weather monitoring
+        document.getElementById('start').addEventListener('click', () => {
+            let interval = setInterval(() => {
+                const index = Math.floor(Math.random() * weatherData.length);
+                const weather = weatherData[index];
+                document.getElementById('weatherData').textContent = JSON.stringify(weather, null, 2);
+            }, 3000); // Update every 5 seconds
+        });
+    </script>
+</body>
+</html>
